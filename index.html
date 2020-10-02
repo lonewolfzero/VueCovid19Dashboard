@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Corona</title>
+    <link rel="icon" href="images/pandemic.png" type="image">
+    <link rel="stylesheet" media="all" href="css/bootstrap/bootstrap.min.css">
+    <!-- <link rel="stylesheet" media="all" href="font/font-awesome-4.7/css/font-awesome.min.css">
+    <link rel="stylesheet" media="all" href="font/font-awesome-5/css/fontawesome-all.min.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="sub_home" data-click="" class="sub_menu white">
+            <a class="white" href="#modalProvinsi" data-toggle="modal">
+                <span class="text-provinsi">
+                    Provinsi
+                </span>
+            </a>
+            <span class="text-infos">
+                Info
+            </span>
+            <a class="white" href="apk/PantauCovid_19.apk">
+                <span class="text-apk">
+                    Aplikasi
+                </span>
+            </a>
+        </div>
+        <div class="container-fluid botbar">
+            <div id="home" class="botbar-circle white">
+                <img src="images/home.png" width="100%">
+            </div>
+            <a class="white" href="index.html">
+                <div class="botbar-left">
+                    Indonesia
+                </div>
+            </a>
+            <div style="width: 20%; float:left"></div>
+            <a class="white" href="data-negara.html">
+                <div class="botbar-right">
+                    Dunia
+                </div>
+            </a>
+        </div>
+        <div class="container">
+            <div class="col-md-12">
+                <h4 class="mt-2">Data Indonesia</h4>
+                <img style="position: absolute; right: 10px; top:10px" src="images/pandemic.png" width="50px" alt="">
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div v-if="c_provinsi != ''" class="col-md-3">
+                        <div class="card card-green">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="card-kiri">
+                                        <img src="images/map.png" width="75px" alt="" srcset="">
+                                    </div>
+                                    <div class="card-kanan">
+                                        <span class="text-numbers">{{c_provinsi[0].Provinsi}}</span>
+                                        <br>
+                                        <span class="text-indonesia">
+                                            {{c_provinsi[0].Kasus_Posi}} Positif,
+                                            {{c_provinsi[0].Kasus_Semb}} sembuh,
+                                            <br>{{c_provinsi[0].Kasus_Meni}} meninggal
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-yellow">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="card-kiri">
+                                        <img src="images/sick.svg" width="75px" alt="" srcset="">
+                                    </div>
+                                    <div class="card-kanan">
+                                        <span class="text-numbers">Positif</span>
+                                        <br>
+                                        <span class="numbers">{{indo_positif}} </span><span>orang</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-blue">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="card-kiri">
+                                        <img src="images/sembuh.svg" width="75px" alt="" srcset="">
+                                    </div>
+                                    <div class="card-kanan">
+                                        <span class="text-numbers">Sembuh</span>
+                                        <br>
+                                        <span class="numbers">{{indo_sembuh}} </span><span>orang</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-red">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="card-kiri">
+                                        <img src="images/death.png" width="75px" alt="" srcset="">
+                                    </div>
+                                    <div class="card-kanan">
+                                        <span class="text-numbers">Meninggal</span>
+                                        <br>
+                                        <span class="numbers">{{indo_meninggal}} </span><span>orang</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <v-app>
+                    <v-card>
+                        <v-card-title>
+                            Data Provinsi
+                            <v-spacer></v-spacer>
+                            <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line
+                                hide-details>
+                            </v-text-field>
+                        </v-card-title>
+                        <v-data-table :headers="headers" :items="provinsi" :search="search"></v-data-table>
+                    </v-card>
+                </v-app>
+            </div>
+
+        </div>
+
+        <!-- footer -->
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <div style="height: 130px;" class="col-md-12 text-center">
+                    <h6>Build with VueJS - by TEddy Zugana</h6><span>API by - <a target="_blank"
+                            href="https://api.kawalcorona.com/">api.kawalcorona.com</a></span>
+                </div>
+            </div>
+        </div>
+        <!-- end footer -->
+        <!-- Modal -->
+        <div class="modal fade" id="modalProvinsi" data-backdrop="static" tabindex="-1" role="dialog"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Pilih Provinsi Anda</h5>
+                    </div>
+                    <div class="modal-body">
+                        <select class="form-control mb-1" v-model="selected">
+                            <option value="">(( Pilih Provinsi ))</option>
+                            <option v-for="(item) in item_provinsi" :value="item.FID">
+                                {{item.Provinsi}}
+                            </option>
+                        </select>
+                        <span class="text-error">{{error_modal}}</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button style="background-color: #5e54af; border-color: #5e54af;" v-on:click="setProvinsi"
+                            class="btn btn-primary">Pilih</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/home1.js"></script>
+<script src="js/main.js"></script>
+
+</html>

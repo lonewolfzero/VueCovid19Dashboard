@@ -1,0 +1,150 @@
+.card-kiri {
+    padding-left: 10px;
+    width: 40%;
+}
+
+.card-kanan {
+    width: 60%;
+}
+
+.numbers {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.text-indonesia {
+    font-size: 13.5px;
+}
+
+.text-numbers {
+    font-size: 18px;
+}
+
+.card-green {
+    background-color: #09AD95;
+    color: white;
+}
+
+.card-red {
+    background-color: #df4b4b;
+    color: white;
+}
+
+.card-blue {
+    background-color: #2ea0dd;
+    color: white;
+}
+
+.card-yellow {
+    background-color: #efbb50;
+    color: white;
+}
+
+.download-card {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    border-radius: 10px 10px 0 10px;
+}
+
+.botbar {
+    background-color: #5e54af;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    color: white;
+}
+
+.botbar-circle {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    position: fixed;
+    left: 50%;
+    margin-top: -25px;
+    border-radius: 30px;
+    transform: translateX(-50%);
+}
+
+.botbar-left {
+    font-weight: 500;
+    float: left;
+    text-align: center;
+    width: 40%;
+    font-size: 19px;
+    padding: 10px;
+}
+
+.botbar-right {
+    font-weight: 500;
+    float: right;
+    text-align: center;
+    width: 40%;
+    font-size: 19px;
+    padding: 10px;
+}
+
+.white {
+    color: white;
+}
+
+.white:hover {
+    color: white;
+}
+
+.text-error {
+    color: #e70000;
+}
+
+.sub_menu {
+    text-align: center;
+    position: fixed;
+    z-index: 99;
+    left: 50%;
+    bottom: -60px;
+    transform: translateX(-50%);
+    transition: .5s;
+    /* width: 200px; */
+    /* height: 180px; */
+    /* border-radius: 100px; */
+    /* background-color: #7d7de4; */
+}
+
+.text-infos {
+
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    top: -25px;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 30px;
+    background-color: #8c95c9;
+    border-radius: 20px;
+    padding: 3px 10px;
+}
+
+.text-apk {
+    position: fixed;
+    text-align: right;
+    font-weight: 500;
+    right: 0;
+    margin-top: 30px;
+    background-color: #8c95c9;
+    border-radius: 20px;
+    padding: 3px 10px;
+}
+
+.text-provinsi {
+    position: fixed;
+    left: 0px;
+    text-align: left;
+    font-weight: 500;
+    margin-top: 30px;
+    background-color: #8c95c9;
+    border-radius: 20px;
+    padding: 3px 10px;
+}
